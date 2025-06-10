@@ -11,8 +11,3 @@ Control your RGB lighting based on CPU usage/temperature using OpenRGB.
 - OpenRGB (running in server mode)
 - Python 3.x
 - `psutil`, `openrgb-python` (see `requirements.txt`)
-
-## Usage
-1. Start OpenRGB server:
-   ```bash
-   openrgb --server
