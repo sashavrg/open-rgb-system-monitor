@@ -8,7 +8,7 @@ from openrgb.utils import RGBColor
 def get_cpu_temp():
     """Read CPU temperature from thermal zones."""
     try:
-        with open("/sys/class/thermal/thermal_zone0/temp", "r") as f:
+        with open("/sys/class/thermal/thermal_zone2/temp", "r") as f:
             return int(f.read().strip()) / 1000
     except FileNotFoundError:
         print("Thermal zone not found. Are you on a compatible system?")
