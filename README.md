@@ -12,7 +12,7 @@ Control your RGB lighting based on CPU usage/temperature using OpenRGB.
 - Python 3.x
 - `psutil`, `openrgb-python` (see `requirements.txt`)
 
-## Setup
+# Setup
 
 1. Clone the repo:
 
@@ -51,17 +51,17 @@ Control your RGB lighting based on CPU usage/temperature using OpenRGB.
     [Install]
     WantedBy=multi-user.target
 
-5. Enable and start the service:
+5. Enable and start the service
 
     sudo systemctl daemon-reload
     sudo systemctl enable openrgb-monitor.service
     sudo systemctl start openrgb-monitor.service
 
-## Customization
+## Customisation
 
-If you're actively editing the source script in your GitHub repo (e.g. ~/Documents/GitHub/open-rgb-system-monitor/cpu_rgb.py), consider symlinking it:
+If you're actively editing the source script in your GitHub repo , consider symlinking it:
 
-sudo ln -sf /home/yourusername/Documents/GitHub/open-rgb-system-monitor/cpu_rgb.py /usr/local/bin/cpu_rgb.py
+    sudo ln -sf /home/yourusername/Documents/GitHub/open-rgb-system-monitor/cpu_rgb.py /usr/local/bin/cpu_rgb.py
 
 Now, updates to the original file will reflect in the systemd service.
 
