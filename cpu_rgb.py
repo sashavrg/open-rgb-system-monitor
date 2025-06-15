@@ -2,8 +2,10 @@
 import argparse
 import time
 import psutil
+import sys
 from openrgb import OpenRGBClient
 from openrgb.utils import RGBColor
+
 
 def get_cpu_temp():
     """Read CPU temperature from thermal zones."""
@@ -14,6 +16,7 @@ def get_cpu_temp():
         print("Thermal zone not found. Are you on a compatible system?")
         return 0
 
+
 def get_color_from_value(value, max_value=100):
     """Map a value (usage/temp) to a color gradient."""
     ratio = min(value / max_value, 1.0)
@@ -21,6 +24,18 @@ def get_color_from_value(value, max_value=100):
         return RGBColor(int(255 * ratio * 2), 0, 255)  # Black → Blue → Cyan
     else:
         return RGBColor(255, 0, max(255 - int(255 * (ratio - 0.5) * 2), 0))  # Cyan → Red
+
+
+# --- OFF mode (shutdown RGB) ---
+if "--off" in sys.argv:
+    try:
+        client = OpenRGBClient()
+        for device in client.devices:
+            for led in device.leds:
+                led.set_color((0, 0, 0))
+    except Exception as e:
+        print(f"Failed to turn off RGB: {e}")
+    sys.exit(0)
 
 
 def main():
@@ -73,6 +88,7 @@ def main():
     except KeyboardInterrupt:
         print("Shutting down...")
         device.set_color(RGBColor(0, 0, 0))
+
 
 if __name__ == "__main__":
     main()

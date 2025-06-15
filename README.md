@@ -4,7 +4,7 @@ Control your RGB lighting based on CPU usage and temperature using OpenRGB.
 
 ## Features
 
-- CPU usage → color gradient (green → yellow → red)  
+- CPU usage → color gradient (blue → magenta → red) 
 - CPU temperature → dynamic RGB response  
 - Lightweight Python script using OpenRGB SDK  
 
